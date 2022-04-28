@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PingApp</string>
+    <string name="default_main_text_view">Hello App!</string>
+</resources>
