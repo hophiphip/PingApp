@@ -1,7 +1,9 @@
 package com.loka.pingapp.utils
 
+import java.math.BigInteger
 import java.net.Inet4Address
 import java.net.Inet6Address
+import java.net.InetAddress
 import java.net.NetworkInterface
 
 /**
@@ -37,6 +39,17 @@ class Ip {
             }
 
             return ""
+        }
+
+        /**
+         * Convert integer to InetAddress.
+         * @param address integer that stores ip address.
+         * @return inet address.
+         */
+        fun intToInetAddress(address: Int): InetAddress {
+            return InetAddress.getByAddress(
+                BigInteger.valueOf(address.toLong()
+                ).toByteArray().reversedArray())
         }
     }
 }

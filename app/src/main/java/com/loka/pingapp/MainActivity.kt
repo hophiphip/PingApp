@@ -6,7 +6,6 @@ import android.net.NetworkRequest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.loka.pingapp.utils.Ip
 import com.loka.pingapp.utils.Network
 
