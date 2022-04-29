@@ -1,38 +1,42 @@
 package com.loka.pingapp.utils
 
-import java.lang.Exception
-import java.net.InetAddress
+import java.net.Inet4Address
+import java.net.Inet6Address
 import java.net.NetworkInterface
-import java.util.*
 
+/**
+ * Helper class for accessing device IP address.
+ */
 class Ip {
     companion object {
-        fun address(useIpV4: Boolean): String? {
-            try {
-                val interfaces: List<NetworkInterface> = Collections.list(NetworkInterface.getNetworkInterfaces())
+        /**
+         * Get device IP address.
+         * @param useIpV4 return IPv4 address.
+         * @return device IP address.
+         */
+        fun address(useIpV4: Boolean = true): String {
+            NetworkInterface.getNetworkInterfaces()?.toList()?.map { networkInterface ->
+                networkInterface.inetAddresses?.toList()?.find { inetAddress ->
+                    !inetAddress.isLoopbackAddress
+                            &&
+                            ((useIpV4 && inetAddress is Inet4Address) // select IpV4 address
+                            || (!useIpV4 && inetAddress is Inet6Address)) // select IpV6 address
+                }?.let { inetAddress ->
+                    val hostAddress = inetAddress.hostAddress
 
-                interfaces.forEach { iface ->
-                    val addresses: List<InetAddress> = Collections.list(iface.inetAddresses)
+                    if (hostAddress.isNullOrBlank()) return "" // blank IP
+                    if (useIpV4) return hostAddress // IpV4
 
-                    addresses.forEach { address ->
-                        if (!address.isLoopbackAddress) {
-                            val hostAddress = address.hostAddress
+                    val zoneSuffixIndex = hostAddress.indexOf('%')
 
-                            if (hostAddress != null) {
-                                val isHostAddressIpV4 = hostAddress.indexOf(':') < 0
-
-                                if (useIpV4) {
-
-                                }
-                            }
-                        }
-                    }
+                    return if (zoneSuffixIndex < 0) // Ipv6
+                        hostAddress.uppercase()
+                    else
+                        hostAddress.substring(0, zoneSuffixIndex).uppercase()
                 }
-
-                return null
-            } catch (ex: Exception) {
-                return null
             }
+
+            return ""
         }
     }
 }
