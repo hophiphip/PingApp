@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/nigho/dev/android/PingApp/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/nigho/dev/android/PingApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2645" />
+        <entry key="..\:/Users/nigho/dev/android/PingApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/nigho/dev/android/PingApp/app/src/main/res/layout/motion_layout.xml" value="0.23333333333333334" />
+        <entry key="..\:/Users/nigho/dev/android/PingApp/app/src/main/res/layout/network_item_container.xml" value="0.14945652173913043" />
+        <entry key="..\:/Users/nigho/dev/android/PingApp/app/src/main/res/layout/view_pager_item.xml" value="0.21331521739130435" />
+        <entry key="..\:/Users/nigho/dev/android/PingApp/app/src/main/res/layout/view_pager_last_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/nigho/dev/android/PingApp/app/src/main/res/layout/views.xml" value="0.1" />
       </map>
     </option>
   </component>

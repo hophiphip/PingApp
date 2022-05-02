@@ -48,8 +48,8 @@ class Ip {
          */
         fun intToInetAddress(address: Int): InetAddress {
             return InetAddress.getByAddress(
-                BigInteger.valueOf(address.toLong()
-                ).toByteArray().reversedArray())
+                BigInteger.valueOf(address.toLong()).toByteArray().reversedArray()
+            )
         }
     }
 }
