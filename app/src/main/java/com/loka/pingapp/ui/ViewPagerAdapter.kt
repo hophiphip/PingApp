@@ -9,7 +9,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.card.MaterialCardView
 import com.loka.pingapp.R
 import com.loka.pingapp.models.ViewPagerItem
-import com.makeramen.roundedimageview.RoundedImageView
 
 class ViewPagerAdapter(
     private var viewPagerItems: List<ViewPagerItem>,
@@ -55,39 +54,8 @@ class ViewPagerAdapter(
             }
 
             ViewPagerHolder.viewTypeId -> {
-                (holder as ViewPagerHolder).setItem(viewPagerItems[position])
+                (holder as ViewPagerHolder).setItem()
             }
-        }
-    }
-
-    /**
-     * Default item in ViewPager.
-     */
-    class ViewPagerHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private var imageView: RoundedImageView = itemView.findViewById(R.id.view_pager_item)
-
-        fun setItem(viewPagerItem: ViewPagerItem) {
-            imageView.setImageResource(viewPagerItem.image)
-        }
-
-        companion object {
-            const val viewTypeId = 0
-        }
-    }
-
-    /**
-     * Last item in ViewPager.
-     */
-    class LastViewPagerHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private var cardView: MaterialCardView = itemView.findViewById(R.id.view_pager_last_item)
-        private var cardTextView: TextView = itemView.findViewById(R.id.view_pager_last_item_text)
-
-        fun setItem() {
-            cardTextView.text = "Add item"
-        }
-
-        companion object {
-            const val viewTypeId = 1
         }
     }
 }

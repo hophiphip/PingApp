@@ -4,10 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clickable="true"
     android:focusable="true"
-    android:checkable="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/view_pager_last_item">
+    android:id="@+id/view_pager_last_item"
+    app:strokeWidth="2dp"
+    app:strokeColor="#2196F3"
+    app:cardCornerRadius="12dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

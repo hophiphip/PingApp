@@ -47,12 +47,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun initViewPager() {
         val viewPagerItems: List<ViewPagerItem> = arrayListOf(
-            ViewPagerItem(R.drawable.muir_beach),
-            ViewPagerItem(R.drawable.rainbow_falls),
-            ViewPagerItem(R.drawable.rockaway_beach),
-            ViewPagerItem(R.drawable.sf_coast),
-            ViewPagerItem(R.drawable.shipwreck_1),
-            ViewPagerItem(R.drawable.shipwreck_2)
+            ViewPagerItem(0),
+            ViewPagerItem(0),
+            ViewPagerItem(0),
+            ViewPagerItem(0),
+            ViewPagerItem(0),
+            ViewPagerItem(0)
         )
 
         viewPager2.adapter = ViewPagerAdapter(viewPagerItems, viewPager2)
