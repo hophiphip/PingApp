@@ -1,45 +1,41 @@
 package com.loka.pingapp.ui
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.card.MaterialCardView
 import com.loka.pingapp.R
-import com.loka.pingapp.models.ViewPagerItem
+import com.loka.pingapp.models.Network
 
-class ViewPagerAdapter(
-    private var viewPagerItems: List<ViewPagerItem>,
+class NetworkViewPagerAdapter(
+    private var networks: List<Network>,
     private var viewPager2: ViewPager2
     ): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemViewType(position: Int): Int {
-        return if (viewPagerItems.size == position)
-            LastViewPagerHolder.viewTypeId
+        return if (networks.size == position)
+            AddNewNetworkHolder.viewTypeId
         else
-            ViewPagerHolder.viewTypeId
+            NetworkHolder.viewTypeId
     }
 
     override fun getItemCount(): Int {
-        // All items + additional last one
-        return viewPagerItems.size + 1
+        return networks.size + 1 // All items + additional last one
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         when (viewType) {
-            LastViewPagerHolder.viewTypeId -> return LastViewPagerHolder(
+            AddNewNetworkHolder.viewTypeId -> return AddNewNetworkHolder(
                 LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_pager_last_item,
+                    R.layout.view_pager_add_network_item_item,
                     parent,
                     false
                 )
             )
 
-            else -> return ViewPagerHolder(
+            else -> return NetworkHolder(
                 LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_pager_item,
+                    R.layout.view_pager_network_item,
                     parent,
                     false
                 )
@@ -49,12 +45,12 @@ class ViewPagerAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder.itemViewType) {
-            LastViewPagerHolder.viewTypeId -> {
-                (holder as LastViewPagerHolder).setItem()
+            AddNewNetworkHolder.viewTypeId -> {
+                (holder as AddNewNetworkHolder).setItem()
             }
 
-            ViewPagerHolder.viewTypeId -> {
-                (holder as ViewPagerHolder).setItem()
+            NetworkHolder.viewTypeId -> {
+                (holder as NetworkHolder).setItem(position, networks[position])
             }
         }
     }

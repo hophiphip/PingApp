@@ -10,13 +10,10 @@
     <TextView
         android:id="@+id/main_current_pager_item"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:layout_height="90dp"
         android:gravity="center"
         android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/main_view_pager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="20sp"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.viewpager2.widget.ViewPager2
@@ -25,8 +22,7 @@
         android:layout_height="wrap_content"
         android:paddingStart="80dp"
         android:paddingEnd="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/main_current_pager_item">
 
     </androidx.viewpager2.widget.ViewPager2>
 

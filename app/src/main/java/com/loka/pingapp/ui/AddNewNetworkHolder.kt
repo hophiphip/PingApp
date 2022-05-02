@@ -9,9 +9,9 @@ import com.loka.pingapp.R
 /**
  * Last item in ViewPager.
  */
-class LastViewPagerHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    private var cardView: MaterialCardView = itemView.findViewById(R.id.view_pager_last_item)
-    private var cardTextView: TextView = itemView.findViewById(R.id.view_pager_last_item_text)
+class AddNewNetworkHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    private var cardView: MaterialCardView = itemView.findViewById(R.id.network_add)
+    private var cardTextView: TextView = itemView.findViewById(R.id.network_add_main_text)
 
     fun setItem() {
         cardTextView.text = "Add item"

@@ -8,9 +8,9 @@ import android.util.Log
 import android.widget.Toast
 
 
-class Network {
+class Net {
     companion object {
-        private const val TAG = "Network"
+        private const val TAG = "Net"
 
         fun request(): NetworkRequest {
             return NetworkRequest.Builder()

@@ -11,9 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.loka.pingapp.ui.ViewPagerAdapter
-import com.loka.pingapp.models.ViewPagerItem
-import com.loka.pingapp.utils.Network
+import com.loka.pingapp.models.Network
+import com.loka.pingapp.ui.NetworkViewPagerAdapter
+import com.loka.pingapp.utils.Net
+import java.net.InetAddress
 import kotlin.math.abs
 
 class MainActivity : AppCompatActivity() {
@@ -34,8 +35,8 @@ class MainActivity : AppCompatActivity() {
         viewPager2 = findViewById(R.id.main_view_pager)
         itemTextView = findViewById(R.id.main_current_pager_item)
 
-        networkRequest = Network.request()
-        networkCallback = Network.callback(this@MainActivity)
+        networkRequest = Net.request()
+        networkCallback = Net.callback(this@MainActivity)
 
         initNetworkCallbacks()
         initViewPager()
@@ -46,16 +47,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViewPager() {
-        val viewPagerItems: List<ViewPagerItem> = arrayListOf(
-            ViewPagerItem(0),
-            ViewPagerItem(0),
-            ViewPagerItem(0),
-            ViewPagerItem(0),
-            ViewPagerItem(0),
-            ViewPagerItem(0)
+        val viewPagerItems: List<Network> = arrayListOf(
+
+            Network(
+                "SSID 1",
+                "192.168.0.1",
+                "192.168.0.99"
+            ),
+
+            Network(
+                "SSID 2",
+                "192.168.1.1",
+                "192.168.1.199"
+            )
+
         )
 
-        viewPager2.adapter = ViewPagerAdapter(viewPagerItems, viewPager2)
+        viewPager2.adapter = NetworkViewPagerAdapter(viewPagerItems, viewPager2)
         viewPager2.clipToPadding = false
         viewPager2.clipChildren = false
         viewPager2.offscreenPageLimit = 3

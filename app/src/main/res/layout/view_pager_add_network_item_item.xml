@@ -6,17 +6,17 @@
     android:focusable="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/view_pager_last_item"
+    android:id="@+id/network_add"
     app:strokeWidth="2dp"
     app:strokeColor="#2196F3"
     app:cardCornerRadius="12dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="170dp">
 
         <TextView
-            android:id="@+id/view_pager_last_item_text"
+            android:id="@+id/network_add_main_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
