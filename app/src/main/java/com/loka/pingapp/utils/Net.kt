@@ -10,7 +10,7 @@ import android.widget.Toast
 
 class Net {
     companion object {
-        private const val TAG = "Net"
+        private val TAG = this::class.java.name
 
         fun request(): NetworkRequest {
             return NetworkRequest.Builder()

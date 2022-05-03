@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.loka.pingapp.models.Host
 import com.loka.pingapp.models.Network
 import com.loka.pingapp.ui.NetworkViewPagerAdapter
 import com.loka.pingapp.utils.Net
@@ -52,13 +53,15 @@ class MainActivity : AppCompatActivity() {
             Network(
                 "SSID 1",
                 "192.168.0.1",
-                "192.168.0.99"
+                "192.168.0.99",
+                mutableListOf<Host>()
             ),
 
             Network(
                 "SSID 2",
                 "192.168.1.1",
-                "192.168.1.199"
+                "192.168.1.199",
+                mutableListOf<Host>()
             )
 
         )
